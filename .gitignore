@@ -1,0 +1,15 @@
+# Operating System
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editors / IDEs
+.vscode/
+.idea/
+

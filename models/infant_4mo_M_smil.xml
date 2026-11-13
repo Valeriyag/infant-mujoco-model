@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="infant_4mo_M">
+  <compiler angle="radian" coordinate="local" inertiafromgeom="false" />
+  <visual>
+    <global offwidth="1920" offheight="1080" />
+    <scale framelength="0.35" framewidth="0.02" />
+  </visual>
+  <default>
+    <joint damping="0.01" armature="0.001" frictionloss="0.001" />
+    <geom contype="1" conaffinity="1" condim="3" friction="0.8 0.1 0.1" />
+  </default>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.9 0.9 0.9" rgb2="0.75 0.75 0.75" />
+    <material name="matplane" texture="grid" texrepeat="5 5" reflectance="0.1" />
+    <material name="mat_axial" rgba="0.85 0.85 0.85 1" />
+    <material name="mat_right" rgba="0.85 0.25 0.25 1" />
+    <material name="mat_left" rgba="0.25 0.40 0.85 1" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 2.5" dir="0 0 -1" directional="true" />
+    <geom name="floor" type="plane" size="2 2 0.05" material="matplane" />
+    <body name="P" pos="0 0 0.119673006212103" euler="-1.5707963267948966 0 0">
+      <freejoint name="root_freejoint" />
+      <inertial pos="-0.073062293285657498 0.057336503106051498 0.047914898299413949" mass="1.2860189269576501" diaginertia="0.0020411021194100001 0.0027003874743500001 0.0027731626262499998" />
+      <geom name="geom_P" type="box" pos="-0.073062293285657498 0.057336503106051498 0.047914898299413949" size="0.073062293285657498 0.057336503106051498 0.047914898299413949" material="mat_axial" group="1" />
+      <body name="T" pos="-0.073062293285657498 0.057336503106051498 0.095829796598827899">
+        <joint name="i_2_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.78539999999999999 1.5708" damping="0.01" stiffness="0.01" springref="0" />
+        <inertial pos="0 0 0.097182501275092995" mass="2.5285358570617298" diaginertia="0.0100383248553 0.0113345940042 0.0054525178369799997" />
+        <geom name="geom_T" type="box" pos="0 0 0.097182501275092995" size="0.073062293285657498 0.057336503106051498 0.097182501275092995" material="mat_axial" group="1" />
+        <body name="HD" pos="0 0 0.19436500255018599">
+          <joint name="i_1_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="0" />
+          <joint name="i_1_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="0" />
+          <joint name="i_1_3" type="hinge" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" damping="0.01" stiffness="0.01" springref="0" />
+          <inertial pos="0 0 0.070146130649740498" mass="1.3182254444377399" diaginertia="0.0027461689734500001 0.0021806350919499999 0.0023322834785799999" />
+          <geom name="geom_HD" type="ellipsoid" pos="0 0 0.070146130649740498" size="0.057884549778502499 0.074132844453170005 0.070146130649740498" material="mat_axial" group="1" />
+          <geom name="geom_HD_nose" type="box" pos="0 0.08013284445317001 0.070146130649740498" size="0.008 0.010 0.012" rgba="0.20 0.85 0.30 1" group="1" />
+          <geom name="geom_HD_ear_r" type="box" pos="0.063884549778502497 0 0.070146130649740498" size="0.008 0.012 0.015" rgba="0.90 0.10 0.10 1" group="1" />
+          <geom name="geom_HD_ear_l" type="box" pos="-0.063884549778502497 0 0.070146130649740498" size="0.008 0.012 0.015" rgba="0.10 0.30 0.90 1" group="1" />
+        </body>
+        <body name="H_R" pos="0.076376190481438025 0 0.1722723545783158">
+          <joint name="ii_1_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.5708 1.5708" damping="0.01" stiffness="0.01" springref="0.57999999999999996" />
+          <joint name="ii_1_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-1.5708 0.78539999999999999" damping="0.01" stiffness="0.01" springref="-0.95999999999999996" />
+          <joint name="ii_1_3" type="hinge" pos="0 0 0" axis="0 0 1" range="-0.78000000000000003 0.78000000000000003" damping="0.01" stiffness="0.01" springref="-0.78000000000000003" />
+          <inertial pos="0 0 -0.062588544249604" mass="0.19476365860259101" diaginertia="0.00027808288255100003 0.00027808288255100003 4.7530619348199999e-05" />
+          <geom name="geom_H_R" type="cylinder" pos="0 0 -0.062588544249604" size="0.022092647971870199 0.062588544249604" material="mat_right" group="1" />
+          <body name="RU_R" pos="0 0 -0.125177088499208">
+            <joint name="ii_2_1" type="hinge" pos="0 0 0" axis="1 0 0" range="0 2.2688999999999999" damping="0.01" stiffness="0.01" springref="2.2688999999999999" />
+            <inertial pos="0 0 -0.04681419569889065" mass="0.136368249034022" diaginertia="0.000114278149406 0.000114278149406 3.1138449047899998e-05" />
+            <geom name="geom_RU_R" type="cylinder" pos="0 0 -0.04681419569889065" size="0.021218328162126578 0.04681419569889065" material="mat_right" group="1" />
+            <body name="MC_R" pos="0 0 -0.093628391397781299">
+              <joint name="ii_3_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-1.2217 1.3963000000000001" damping="0.01" stiffness="0.01" springref="0.25" />
+              <inertial pos="0 0 -0.018827448270206" mass="0.067532318991109397" diaginertia="1.7937450615e-05 1.7777460638800002e-05 1.9755997408300001e-05" />
+              <geom name="geom_MC_R" type="box" pos="0 0 -0.018827448270206" size="0.02103249135976255 0.020862848083201251 0.018827448270206" material="mat_right" group="1" />
+            </body>
+          </body>
+        </body>
+        <body name="H_L" pos="-0.076376190481438025 0 0.1722723545783158">
+          <joint name="iii_1_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.5708 1.5708" damping="0.01" stiffness="0.01" springref="0.57999999999999996" />
+          <joint name="iii_1_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.78000000000000003 1.5708" damping="0.01" stiffness="0.01" springref="0.95999999999999996" />
+          <joint name="iii_1_3" type="hinge" pos="0 0 0" axis="0 0 1" range="-0.78000000000000003 0.78000000000000003" damping="0.01" stiffness="0.01" springref="0.78000000000000003" />
+          <inertial pos="0 0 -0.062588544249604" mass="0.19476365860259101" diaginertia="0.00027808288255100003 0.00027808288255100003 4.7530619348199999e-05" />
+          <geom name="geom_H_L" type="cylinder" pos="0 0 -0.062588544249604" size="0.022092647971870199 0.062588544249604" material="mat_left" group="1" />
+          <body name="RU_L" pos="0 0 -0.125177088499208">
+            <joint name="iii_2_1" type="hinge" pos="0 0 0" axis="1 0 0" range="0 2.2688999999999999" damping="0.01" stiffness="0.01" springref="2.2688999999999999" />
+            <inertial pos="0 0 -0.04681419569889065" mass="0.13640509662393599" diaginertia="0.00011424450469 0.00011424450469 3.11883072859e-05" />
+            <geom name="geom_RU_L" type="cylinder" pos="0 0 -0.04681419569889065" size="0.021218328162126598 0.04681419569889065" material="mat_left" group="1" />
+            <body name="MC_L" pos="0 0 -0.093628391397781299">
+              <joint name="iii_3_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-1.2217 1.3963000000000001" damping="0.01" stiffness="0.01" springref="-0.25" />
+              <inertial pos="0 0 -0.018827448270206" mass="0.0672037622576898" diaginertia="1.77539928811e-05 1.76909701334e-05 1.9563692120899999e-05" />
+              <geom name="geom_MC_L" type="box" pos="0 0 -0.018827448270206" size="0.020930164551501301 0.020862848083201251 0.018827448270206" material="mat_left" group="1" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="F_R" pos="-0.036938136455366852 0.057336503106051498 0">
+        <joint name="iv_1_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="0.20000000000000001" />
+        <joint name="iv_1_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="-0.45000000000000001" />
+        <joint name="iv_1_3" type="hinge" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" damping="0.01" stiffness="0.01" springref="-1.5708" />
+        <inertial pos="0 0 -0.058235393347920501" mass="0.50573881845189295" diaginertia="0.00074422509693400005 0.00074422509693400005 0.00034502157753600002" />
+        <geom name="geom_F_R" type="cylinder" pos="0 0 -0.058235393347920501" size="0.036938136455366852 0.058235393347920501" material="mat_right" group="1" />
+        <body name="TB_R" pos="0 0 -0.116470786695841">
+          <joint name="iv_2_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-2.2688999999999999 0" damping="0.01" stiffness="0.01" springref="-0.52359999999999995" />
+          <inertial pos="0 0 -0.043304112649046898" mass="0.209114674633956" diaginertia="0.00016733619454199999 0.00016733619454199999 8.1498215053900006e-05" />
+          <geom name="geom_TB_R" type="cylinder" pos="0 0 -0.043304112649046898" size="0.027244213840776976 0.043304112649046898" material="mat_right" group="1" />
+          <body name="FT_R" pos="0 0 -0.086608225298093797">
+            <joint name="iv_3_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.3963000000000001 1.2217" damping="0.01" stiffness="0.01" springref="0" />
+            <inertial pos="0 0.019061131904864876 -0.01295738514659695" mass="0.100150806287904" diaginertia="7.7185521159499996e-05 8.5410953952000005e-05 1.9435234411799998e-05" />
+            <geom name="geom_FT_R" type="box" pos="0 0.019061131904864876 -0.01295738514659695" size="0.02035399812995245 0.046305345745641852 0.01295738514659695" material="mat_right" group="1" />
+          </body>
+        </body>
+      </body>
+      <body name="F_L" pos="-0.10918645011594814 0.057336503106051498 0">
+        <joint name="v_1_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="0.20000000000000001" />
+        <joint name="v_1_2" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.78539999999999999 0.78539999999999999" damping="0.01" stiffness="0.01" springref="0.45000000000000001" />
+        <joint name="v_1_3" type="hinge" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708" damping="0.01" stiffness="0.01" springref="1.5708" />
+        <inertial pos="0 0 -0.058235393347920501" mass="0.50573881845189295" diaginertia="0.00074422509693400005 0.00074422509693400005 0.00034502157753600002" />
+        <geom name="geom_F_L" type="cylinder" pos="0 0 -0.058235393347920501" size="0.036938136455366852 0.058235393347920501" material="mat_left" group="1" />
+        <body name="TB_L" pos="0 0 -0.116470786695841">
+          <joint name="v_2_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-2.2688999999999999 0" damping="0.01" stiffness="0.01" springref="-0.52359999999999995" />
+          <inertial pos="0 0 -0.043304112649046898" mass="0.20819449756716801" diaginertia="0.00016753649316200001 0.00016753649316200001 7.9439544285199996e-05" />
+          <geom name="geom_TB_L" type="cylinder" pos="0 0 -0.043304112649046898" size="0.027244213840776976 0.043304112649046898" material="mat_left" group="1" />
+          <body name="FT_L" pos="0 0 -0.086608225298093797">
+            <joint name="v_3_1" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.3963000000000001 1.2217" damping="0.01" stiffness="0.01" springref="0" />
+            <inertial pos="0 0.019061131904864876 -0.013198210891952699" mass="0.10201220751194701" diaginertia="7.8834279597599994e-05 8.6998400525099994e-05 2.00106469786e-05" />
+            <geom name="geom_FT_L" type="box" pos="0 0.019061131904864876 -0.013198210891952699" size="0.02035399812995245 0.046305345745641852 0.013198210891952699" material="mat_left" group="1" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="act_i_2_1" joint="i_2_1" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 1.5708" />
+    <position name="act_i_1_1" joint="i_1_1" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_i_1_2" joint="i_1_2" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_i_1_3" joint="i_1_3" kp="5.0" kv="0.5" ctrlrange="-1.5708 1.5708" />
+    <position name="act_ii_1_1" joint="ii_1_1" kp="5.0" kv="0.5" ctrlrange="-1.5708 1.5708" />
+    <position name="act_ii_1_2" joint="ii_1_2" kp="5.0" kv="0.5" ctrlrange="-1.5708 0.78539999999999999" />
+    <position name="act_ii_1_3" joint="ii_1_3" kp="5.0" kv="0.5" ctrlrange="-0.78000000000000003 0.78000000000000003" />
+    <position name="act_ii_2_1" joint="ii_2_1" kp="5.0" kv="0.5" ctrlrange="0 2.2688999999999999" />
+    <position name="act_ii_3_2" joint="ii_3_2" kp="5.0" kv="0.5" ctrlrange="-1.2217 1.3963000000000001" />
+    <position name="act_iii_1_1" joint="iii_1_1" kp="5.0" kv="0.5" ctrlrange="-1.5708 1.5708" />
+    <position name="act_iii_1_2" joint="iii_1_2" kp="5.0" kv="0.5" ctrlrange="-0.78000000000000003 1.5708" />
+    <position name="act_iii_1_3" joint="iii_1_3" kp="5.0" kv="0.5" ctrlrange="-0.78000000000000003 0.78000000000000003" />
+    <position name="act_iii_2_1" joint="iii_2_1" kp="5.0" kv="0.5" ctrlrange="0 2.2688999999999999" />
+    <position name="act_iii_3_2" joint="iii_3_2" kp="5.0" kv="0.5" ctrlrange="-1.2217 1.3963000000000001" />
+    <position name="act_iv_1_1" joint="iv_1_1" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_iv_1_2" joint="iv_1_2" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_iv_1_3" joint="iv_1_3" kp="5.0" kv="0.5" ctrlrange="-1.5708 1.5708" />
+    <position name="act_iv_2_1" joint="iv_2_1" kp="5.0" kv="0.5" ctrlrange="-2.2688999999999999 0" />
+    <position name="act_iv_3_1" joint="iv_3_1" kp="5.0" kv="0.5" ctrlrange="-1.3963000000000001 1.2217" />
+    <position name="act_v_1_1" joint="v_1_1" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_v_1_2" joint="v_1_2" kp="5.0" kv="0.5" ctrlrange="-0.78539999999999999 0.78539999999999999" />
+    <position name="act_v_1_3" joint="v_1_3" kp="5.0" kv="0.5" ctrlrange="-1.5708 1.5708" />
+    <position name="act_v_2_1" joint="v_2_1" kp="5.0" kv="0.5" ctrlrange="-2.2688999999999999 0" />
+    <position name="act_v_3_1" joint="v_3_1" kp="5.0" kv="0.5" ctrlrange="-1.3963000000000001 1.2217" />
+  </actuator>
+  <include file="skin_assets/infant_4mo_M_smil_skin.xml" />
+</mujoco>

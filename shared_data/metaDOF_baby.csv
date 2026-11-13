@@ -1,0 +1,25 @@
+idDOF,sDOF,nRangeMin,nRangeMax,nIC,sNote,sBodyP,sBodyF,nViscosity,nStiffness,nSlackAng,nRangeStiffness,nRangeDamping,nRangeTransition
+1,i_1_1,-0.7854,0.7854,0,head pitch or neck extend/flex (X),i_t,o_hd,0.01,0.01,0,0.05,0.005,0.0017
+2,i_1_2,-0.7854,0.7854,0,head roll or neck tilt left/right (Y),i_t,o_hd,0.01,0.01,0,0.05,0.005,0.0017
+3,i_1_3,-1.5708,1.5708,0,head yaw or twist left/right (Z),i_t,o_hd,0.01,0.01,0,0.05,0.005,0.0017
+4,i_2_1,-0.7854,1.5708,0,trunk back extension/flexion (X),i_p,i_t,0.01,0.01,0,0.001,0.005,0.0017
+5,ii_1_1,-1.5708,1.5708,0.58,right shoulder flexion/extension motion (X),i_t,ii_h,0.01,0.01,0.58,0.1,0.005,0.0017
+6,ii_1_2,-1.5708,0.7854,-0.96,right shoulder abduction/adduction motion (Y),i_t,ii_h,0.01,0.01,-0.96,0.1,0.005,0.0017
+7,ii_1_3,-0.78,0.78,-0.78,right shoulder rotation motion (Z),i_t,ii_h,0.01,0.01,-0.78,0.1,0.005,0.0017
+8,ii_2_1,0,2.2689,2.2689,right elbow flexion/extension motion (X),ii_h,ii_ru,0.01,0.01,2.2689,0.1,0.005,0.0017
+9,ii_3_2,-1.2217,1.3963,0.25,right wrist flexion/extension motion about Y axis,ii_ru,ii_mcp,0.01,0.01,0.25,0.05,0.005,0.0017
+10,iii_1_1,-1.5708,1.5708,0.58,left shoulder flexion/extension motion (X),i_t,iii_h,0.01,0.01,0.58,0.001,0.005,0.0017
+11,iii_1_2,-0.78,1.5708,0.96,left shoulder abduction/adduction motion (Y),i_t,iii_h,0.01,0.01,0.96,0.001,0.005,0.0017
+12,iii_1_3,-0.78,0.78,0.78,left shoulder rotation motion (Z),i_t,iii_h,0.01,0.01,0.78,0.001,0.005,0.0017
+13,iii_2_1,0,2.2689,2.2689,left elbow flexion/extension motion (X),iii_h,iii_ru,0.01,0.01,2.2689,0.001,0.005,0.0017
+14,iii_3_2,-1.2217,1.3963,-0.25,left wrist flexion/extension motion about Y axis,iii_ru,iii_mcp,0.01,0.01,-0.25,0.001,0.005,0.0017
+15,iv_1_1,-0.7854,0.7854,0.2,right hip ext/flex (X),i_p,iv_f,0.01,0.01,0.2,0.001,0.005,0.0017
+16,iv_1_2,-0.7854,0.7854,-0.45,right hip abduction/adduction (Y),i_p,iv_f,0.01,0.01,-0.45,0.001,0.005,0.0017
+17,iv_1_3,-1.5708,1.5708,-1.5708,right hip external/internal rotation (Z),i_p,iv_f,0.01,0.01,-1.5708,0.001,0.005,0.0017
+18,iv_2_1,-2.2689,0,-0.5236,right knee extension/flexion (X),iv_f,iv_tb,0.01,0.01,-0.5236,0.001,0.005,0.0017
+19,iv_3_1,-1.3963,1.2217,0,right ankle dorsi/plantar flex (X),iv_tb,iv_ft,0.01,0.01,0,0.001,0.005,0.0017
+20,v_1_1,-0.7854,0.7854,0.2,left hip ext/flex (X),i_p,v_f,0.01,0.01,0.2,0.001,0.005,0.0017
+21,v_1_2,-0.7854,0.7854,0.45,left hip abduction/adduction (Y),i_p,v_f,0.01,0.01,0.45,0.001,0.005,0.0017
+22,v_1_3,-1.5708,1.5708,1.5708,left hip external/internal rotation (Z),i_p,v_f,0.01,0.01,1.5708,0.001,0.005,0.0017
+23,v_2_1,-2.2689,0,-0.5236,left knee extension/flexion (X),v_f,v_tb,0.01,0.01,-0.5236,0.001,0.005,0.0017
+24,v_3_1,-1.3963,1.2217,0,left ankle dorsi/plantar flex (X),v_tb,v_ft,0.01,0.01,0,0.001,0.005,0.0017
